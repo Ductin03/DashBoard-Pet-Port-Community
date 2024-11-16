@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6"><input type="text" ></div>
+    <div class="col-6">
+      <button class="btn btn-primary">Search</button>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-12">
+      <app-card [showHeader]="false" blockClass="dashboard-card" *ngIf="data">
+        <ngx-datatable style="margin-top: 20px" #dataTable [rows]="data" [messages]="{
+          emptyMessage: 'No Data Found',
+          totalMessage: 'Total'
+        }" [rowHeight]="40" [externalPaging]="true" [columnMode]="'force'" [limit]="filter.limit" [headerHeight]="40"
+          [footerHeight]="40" [scrollbarH]="true" [count]="total" class="tailwind-datatable"
+          (page)="handlePageChange($event)">
+          
+          <ngx-datatable-column name="Image " prop="image">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <img src="" alt="">
+            </ng-template>
+          </ngx-datatable-column>
+          
+          <ngx-datatable-column name="Title" prop="productName">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+             {{row.title}}
+            </ng-template>
+          </ngx-datatable-column>
+
+          
+          <ngx-datatable-column name="Post Owner" prop="productName">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.PostOwner.full_name}}
+            </ng-template>
+          </ngx-datatable-column>
+
+        
+          <ngx-datatable-column name="Detail">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <button type="button" class="btn btn-sm">
+                <a [routerLink]="['detail',row.id]">
+                  <i antIcon type="edit" theme="outline"></i>
+                </a>
+          
+              </button>
+             
+            </ng-template>
+            
+          </ngx-datatable-column>
+
+        </ngx-datatable>
+      </app-card>
+    </div>
+  </div>
+</div>

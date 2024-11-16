@@ -1,0 +1,29 @@
+/* Định dạng chung cho logo */
+.logo {
+    margin-top:65px;
+    width: 200px;         /* Đặt chiều rộng logo */
+    height: 120px;         /* Đặt chiều cao logo */
+    object-fit: contain;  /* Giữ nguyên tỷ lệ, thu nhỏ hoặc phóng to để vừa khung */
+    border-radius: 5px;   /* Bo góc cho ảnh */
+    transition: all 0.3s ease; /* Hiệu ứng mượt khi thay đổi kích thước */
+    
+  }
+  
+  /* Khi hover vào logo */
+  .logo:hover {
+    transform: scale(1.05); /* Phóng to logo khi hover */
+  }
+  
+  /* Định dạng logo cho màn hình nhỏ (responsive) */
+  @media screen and (max-width: 768px) {
+    .logo {
+      width: 90px;       /* Thu nhỏ logo trên thiết bị di động */
+      height: 45px;
+    }
+  }
+  
+  /* Định dạng cho logo trong chế độ tối */
+  .logo-dark {
+    filter: brightness(0.9); /* Giảm độ sáng một chút khi ở chế độ tối */
+  }
+  

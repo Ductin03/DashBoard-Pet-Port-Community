@@ -1,0 +1,58 @@
+<section class="py-5">
+    <div class="container">
+      <div class="row gx-5">
+        <aside class="col-lg-6">
+          <div class="border rounded-4 mb-3 d-flex justify-content-center">
+            <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp">
+              <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSRSjMyTZsur6-Fs0gOkUOFCd_GcCxoLTDHSF431rgncsUNnGyBu-6iB0nReLN_CToA" />
+            </a>
+        </div>
+        </aside>
+        <main class="col-lg-6">
+          <div class="ps-lg-3">
+            <h4 class="title text-dark">
+              {{record?.name}}
+            </h4>
+            <div class="d-flex flex-row my-3">
+              <div class="text-warning mb-1 me-2">
+                <span class="badge bg-primary text-white" style="font-size: 15px; color: white;  ">
+                  {{record?.medical_history}}
+                </span>
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <span class="h5">Category</span>
+              <span class="text-muted">/{{record?.Category.name}}</span>
+            </div>
+  
+            <p>
+              {{record?.description}}
+            </p>
+  
+            <div class="row">
+              <dt class="col-3">Pet Owner:</dt>
+              <dd class="col-9">{{record?.PetOwner?.full_name}}</dd>
+
+              <dt class="col-3">Phone:</dt>
+              <dd class="col-9">{{record?.PetOwner?.phone}}</dd>
+                
+                
+              <dt class="col-3">Breed:</dt>
+              <dd class="col-9">{{record?.breed}}</dd>
+  
+              <dt class="col-3">Gender:</dt>
+              <dd class="col-9">{{record?.gender}}</dd>
+  
+              <dt class="col-3">Age:</dt>
+              <dd class="col-9">{{record?.age}}</dd>
+            </div>
+  
+            <hr />
+      </div>
+
+
+ 
+       
+  
+        

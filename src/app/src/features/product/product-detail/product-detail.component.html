@@ -1,0 +1,56 @@
+<section class="py-5">
+    <div class="container">
+      <div class="row gx-5">
+        <aside class="col-lg-6">
+          <div class="border rounded-4 mb-3 d-flex justify-content-center">
+            <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp">
+              <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="https://bizweb.dktcdn.net/100/091/443/products/hieuunganh-com-5e918dd032c21.png?v=1586597434450" />
+            </a>
+        </div>
+        </aside>
+        <main class="col-lg-6">
+          <div class="ps-lg-3">
+            <h4 class="title text-dark">
+              {{record.name}}
+            </h4>
+            <div class="d-flex flex-row my-3">
+              <div class="text-warning mb-1 me-2">
+                <span class="ms-1">
+                  4.5
+                </span>
+              </div>
+              <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i>154 orders</span>
+              <span  style="margin-left: 10px;height: 18px;"  class="{{record.stock_quantity>0 ? 'badge bg-primary' : 'badge bg-danger' }}">{{record.stock_quantity>0 ? 'INSTOCK' : 'OUT OF STOCK'}}</span>
+            </div>
+  
+            <div class="mb-3">
+              <span class="h5">{{record.price}}</span>
+              <span class="text-muted">/per box</span>
+            </div>
+  
+            <p>
+              {{record.description}}
+            </p>
+  
+            <div class="row">
+              <dt class="col-3">SKU:</dt>
+              <dd class="col-9">{{record.sku}}</dd>
+  
+              <dt class="col-3">Sales Center</dt>
+              <dd class="col-9">{{record?.SalesCenter.full_name}}</dd>
+  
+              <dt class="col-3">Stock Quantity</dt>
+              <dd class="col-9">{{record.stock_quantity}}</dd>
+  
+              <dt class="col-3">Brand</dt>
+              <dd class="col-9">Reebook</dd>
+            </div>
+  
+            <hr />
+      </div>
+
+
+ 
+       
+  
+        
