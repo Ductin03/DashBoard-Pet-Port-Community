@@ -3,7 +3,6 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // project import
-import tableData from 'src/fake-data/default-data.json';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { MonthlyBarChartComponent } from './monthly-bar-chart/monthly-bar-chart.component';
 import { IncomeOverviewChartComponent } from './income-overview-chart/income-overview-chart.component';
