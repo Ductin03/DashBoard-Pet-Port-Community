@@ -64,7 +64,16 @@ const routes: Routes = [
       {
         path: 'sellers/get-request/detail/:id',
         loadComponent: () => import('../app/src/features/seller/get-detail-request-upgrade/get-detail-request-upgrade.component').then((c) => c.GetDetailRequestUpgradeComponent)
+      },  
+      {
+        path: 'user/view/:id',
+        loadComponent: () => import('../app/src/features/user/view-user/view-user.component').then((c) => c.ViewUserComponent)
+      },  
+      {
+        path: 'user/edit/:id',
+        loadComponent: () => import('../app/src/features/user/edit-user/edit-user.component').then((c) => c.EditUserComponent)
       }
+
 
     ]
   },

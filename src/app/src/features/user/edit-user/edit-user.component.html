@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 0;
+            color: #343a40;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 30px auto;
+            padding-right: 0px;
+            padding-left: 0px;
+            max-width: 1200px;
+            gap: 20px;
+        }
+
+        .profile-left, .profile-right {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .profile-left {
+            flex: 1;
+            text-align: center;
+            max-width: 350px;
+        }
+
+        .profile-left img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #17a2b8;
+            margin-bottom: 15px;
+        }
+
+        .profile-left h3 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .profile-left p {
+            margin: 5px 0;
+            font-size: 0.95em;
+            color: #6c757d;
+        }
+
+        .profile-right {
+            flex: 2;
+        }
+
+        .profile-right h4 {
+            font-size: 1.3em;
+            border-bottom: 2px solid #17a2b8;
+            margin-bottom: 20px;
+            color: #17a2b8;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-table th, .info-table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .info-table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .info-table td {
+            background-color: #fff;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 8px 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .input-field:focus {
+            border-color: #17a2b8;
+            outline: none;
+        }
+
+        .additional-images {
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .additional-images img {
+            width: 48%;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+
+        .update-btn {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #17a2b8;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .update-btn:hover {
+            background-color: #138496;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                margin: 10px;
+            }
+
+            .profile-left {
+                max-width: 100%;
+            }
+
+            .additional-images img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Phần bên trái -->
+    <div class="profile-left">
+        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Profile Picture">
+        <h3><input type="text" class="input-field" value="Admin Name"></h3>
+        <p><i class="fas fa-birthday-cake"></i> Birth Day: <input type="date" class="input-field" value="1990-01-01"></p>
+        <p><i class="fas fa-clock"></i> Opening Time: <input type="time" class="input-field" value="08:00"></p>
+        <p><i class="fas fa-clock"></i> Closing Time: <input type="time" class="input-field" value="17:00"></p>
+        <button class="update-btn">Cập nhật thông tin</button>
+    </div>
+
+    <!-- Phần bên phải -->
+    <div class="profile-right">
+        <h4>Profile Information</h4>
+        <table class="info-table">
+            <tr>
+                <th>Name</th>
+                <td><input type="text" class="input-field" value="Admin Name"></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input type="email" class="input-field" value="admin@example.com"></td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td><input type="tel" class="input-field" value="+1 234 567 890"></td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td><textarea class="input-field">123 Admin Street, City, Country</textarea></td>
+            </tr>
+            <tr>
+                <th>CCCD</th>
+                <td><input type="text" class="input-field" value="123456789"></td>
+            </tr>
+        </table>
+
+        <div class="additional-images">
+            <img src="https://via.placeholder.com/300x200" alt="Certificate Image">
+            <img src="https://via.placeholder.com/300x200" alt="CCCD Front">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

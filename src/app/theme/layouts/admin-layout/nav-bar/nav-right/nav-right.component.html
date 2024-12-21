@@ -14,7 +14,7 @@
             <h6 class="mb-0">FullName: {{infoUser.username}}</h6>
             <span>Role: {{infoUser?.role}}</span>
           </div>
-          <a href="javascript:" class="bg-transparent"><i class="d-flex f-20" antIcon theme="outline" type="logout"></i></a>
+         
         </div>
       </div>
       <ul ngbNav #nav="ngbNav" class="nav drp-tabs nav-fill nav-tabs">
@@ -24,14 +24,21 @@
             Profile
           </a>
           <ng-template ngbNavContent>
-            @for (task of profile; track task) {
+            
               <div>
-                <a class="dropdown-item">
-                  <i class="text-muted" antIcon theme="outline" type="{{ task.icon }}"></i>
-                  <span>{{ task.title }}</span>
+                <a class="dropdown-item" [routerLink]="['user/view',infoUser.id]" >
+                  <i class="text-muted" antIcon theme="outline" type="user"></i>
+                  <span>View User</span>
                 </a>
               </div>
-            }
+              
+              <div>
+                <a class="dropdown-item" [routerLink]="['user/edit',infoUser.id]">
+                  <i class="text-muted" antIcon theme="outline" type="edit"></i>
+                  <span>Edit User</span>
+                </a>
+              </div>
+            
             <div>
              <button (click)="logout()">
               <a class="dropdown-item">

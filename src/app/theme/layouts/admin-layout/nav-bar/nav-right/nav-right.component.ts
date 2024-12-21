@@ -1,6 +1,6 @@
 // angular import
 import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 // project import
 import { SharedModule } from 'src/app/theme/shared/shared.module';
@@ -81,11 +81,13 @@ export class NavRightComponent {
       title: 'View Profile'
     }
   ];
+
   ngOnInit(){
     const inforUserFromToken=this.authServices.getUserNameFromToken();
     this.infoUser=inforUserFromToken;
     
   }
+  
   logout(){
     this.authServices.logout().subscribe({
       next:()=>{

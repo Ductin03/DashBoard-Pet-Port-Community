@@ -5,6 +5,7 @@ import { EditOutline } from '@ant-design/icons-angular/icons';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { DoctorService } from 'src/app/src/services/doctor.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-get-request-upgrade-doctor',
@@ -73,7 +74,13 @@ export class GetRequestUpgradeDoctorComponent {
       this.doctorServices.approveDoctor(requestId).subscribe({
         next:(res)=>{
           if(res){
-            alert("Duyệt quyền thành công")
+           Swal.fire({
+                                   icon: 'success',
+                                   title: 'Duyệt thành công',
+                                   showConfirmButton: true,
+                                   confirmButtonText: 'OK',
+                                 });
+            this.fetchPetPaginations();
           }
         },
         error:(err)=>{

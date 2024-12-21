@@ -7,6 +7,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { DoctorService } from 'src/app/src/services/doctor.service';
 import { SellerService } from 'src/app/src/services/seller.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-get-request-upgrade-seller',
@@ -75,7 +76,13 @@ export class GetRequestUpgradeSellerComponent {
       this.sellerServices.approveSeller(requestId).subscribe({
         next:(res)=>{
           if(res){
-            alert("Duyệt quyền thành công")
+            Swal.fire({
+                        icon: 'success',
+                        title: 'Duyệt thành công',
+                        showConfirmButton: true,
+                        confirmButtonText: 'OK',
+                      });
+            this.fetchPetPaginations();
           }
         },
         error:(err)=>{
