@@ -18,11 +18,12 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
 export class GetProductComponent {
   data: any[] = [];
   iconServices=inject(IconService);
-  total:any;
-
+  total:any;  
+  isSearching: boolean = false;
   filter = {
     limit: 5,
-    skip: 1
+    page: 1,
+    name: ''
     
   }
   private router=inject(Router)
@@ -37,26 +38,57 @@ export class GetProductComponent {
     this.getAllProduct();
   }
   getAllProduct(){
+    if(this.isSearching){
+      return;
+    }
     this.getProductServices.getAllProduct().subscribe({
       next:(res)=>{
         this.total=res.data.length
         console.log(res.data);
-        
       },
       error:(err)=>{
-        console.log(err);
-        
+        console.log(err);       
       }
     })
   }
 
+
+  searchProduct() { 
+    if (this.filter.name.trim() === '') { 
+      // Reset tìm kiếm nếu `name` trống
+      this.isSearching = false; 
+      this.filter.page = 1; 
+      this.filter.limit = 5; 
+      this.fetchProductPaginations();
+      this.getAllProduct();
+      return;
+    }
+    this.isSearching = true; 
+    this.getProductServices.searchProduct({ name: this.filter.name }).subscribe
+    ({ 
+      next: (res) => { 
+        this.data = res.data; 
+        this.total = res.data.length
+        this.filter.limit=10000000
+        console.log(this.data); 
+      }, 
+      error: (err) => {
+         console.log(err); 
+        },
+     complete: () => {
+       this.isSearching = false;
+       } }); 
+    
+      }
+  
   public handlePageChange($event: any) {
     console.log($event.offset);
-    this.filter.skip = ($event.offset)+1;
+    this.filter.page = ($event.offset)+1;
     this.fetchProductPaginations();
   }
 
   private fetchProductPaginations() {
+    if (this.isSearching) { return;  }
     this.getProductServices.getProduct(this.filter)
       .subscribe(res => {
         this.data = res.data;

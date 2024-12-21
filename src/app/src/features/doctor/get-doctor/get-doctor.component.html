@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row align-items-center">
+    
+    <div class="col-auto ml-auto">
+      <!-- Nút Inbox nằm ở góc phải -->
+      <button type="button" class="btn btn-primary position-relative">
+        <a  [routerLink]="['get-request']" style="color: white;" >Request Role         
+        </a>      
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{total}}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button>
+    </div>
+  </div>
+  
+    <div class="row">
+  
+      <div class="col-12">
+      
+        
+        <app-card [showHeader]="false" blockClass="dashboard-card" *ngIf="data">
+          <ngx-datatable style="margin-top: 20px" #dataTable [rows]="data" [messages]="{
+            emptyMessage: 'No Data Found',
+            totalMessage: 'Total'
+          }" [rowHeight]="150" [externalPaging]="true" [columnMode]="'force'" [limit]="filter.limit" [headerHeight]="40"
+            [footerHeight]="40" [scrollbarH]="true" [count]="totalDoctor" class="tailwind-datatable"
+            (page)="handlePageChange($event)">
+  
+            <ngx-datatable-column name="Avatar" prop="image">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <div class="img-center">
+                  <img src="https://ben.com.vn/tin-tuc/wp-content/uploads/2021/12/anh-che-cho-hai-huoc-cho-dien-thoai-4.jpg" alt="Image" />
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Full Name" prop="fullName">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.full_name}}
+              </ng-template>
+            </ngx-datatable-column>
+      
+             <ngx-datatable-column name="Address" prop="address">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.clinic_address}}
+              </ng-template>
+            </ngx-datatable-column>
+  
+         
+           <ngx-datatable-column name="Email">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <span >
+                  {{row.email}}
+                </span>
+               
+              </ng-template>
+              
+            </ngx-datatable-column>
+  
+            <ngx-datatable-column name="Detail">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <button type="button" class="btn btn-sm">
+                  <a [routerLink]="['detail',row.id]">
+                    <i antIcon type="edit" theme="outline"></i>
+                  </a>
+            
+                </button>
+               
+              </ng-template>
+              
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </app-card>
+      </div>
+    </div>
+  </div>

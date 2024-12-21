@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Information</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<div class="container" style="margin: 0px;">
+    <div class="shop-left">
+        <img src="https://invietnhat.vn/wp-content/uploads/2023/08/nhung-luu-y-ve-noi-dung.jpg" alt="Shop Logo">
+        <h3>{{record?.store_name}}</h3>
+        <p>Sales Center: {{record?.full_name}}</p>
+        <p>Birth Day: {{record?.date_of_birth}}</p>
+        <p>Mã Thuế: {{record?.business_license}}</p>
+    </div>
+
+    <div class="shop-right">
+        <h4>Thông Tin Cửa Hàng</h4>
+        <table class="info-table">
+            <tr>
+                <th>Tên Shop</th>
+                <td>{{record?.store_name}}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{record?.email}}</td>
+            </tr>
+            <tr>
+                <th>Số Điện Thoại</th>
+                <td>{{record?.phone}}</td>
+            </tr>
+            <tr>
+                <th>Địa Chỉ</th>
+                <td>{{record?.address}}</td>
+            </tr>
+            <tr>
+                <th>Mô Tả</th>
+                <td>{{record?.
+                    store_description
+                    }}</td>
+            </tr>
+        </table>
+
+        <!-- Giấy phép kinh doanh -->
+        <div class="license-img">
+            <h4>Giấy Phép Kinh Doanh</h4>
+            <img src="https://invietnhat.vn/wp-content/uploads/2023/08/nhung-luu-y-ve-noi-dung.jpg" alt="Giấy Phép Kinh Doanh">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -7,6 +7,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { IconService } from '@ant-design/icons-angular';
 import { EditOutline } from '@ant-design/icons-angular/icons';
 import { PostService } from 'src/app/src/services/post.service';
+import { title } from 'process';
 
 @Component({
   selector: 'app-post',
@@ -18,13 +19,15 @@ import { PostService } from 'src/app/src/services/post.service';
 export class PostComponent {
   data:any[]=[];
   total:any;
+  isSearching: boolean = false;
   private postService=inject(PostService)
   private iconServices=inject(IconService)
   private route=inject(Router)
 
   filter = {
-    limit:2,
-    page:1
+    limit:5,
+    page:1,
+    title:''
   }
   ngOnInit():void{
     this.iconServices.addIcon(...[
@@ -35,6 +38,9 @@ export class PostComponent {
     
   }
   getTotalPost(){
+    if(this.isSearching){
+      return;
+    }
     this.postService.totalPost().subscribe({
       next:(res)=>{
         this.total=res.data     
@@ -51,6 +57,7 @@ export class PostComponent {
     this.fetchPostPanigations();
   }
   private fetchPostPanigations(){
+    if (this.isSearching) { return;  }
     this.postService.getPostsPanigations(this.filter).subscribe({
       next:(res)=>{
         this.data=res.data
@@ -63,5 +70,33 @@ export class PostComponent {
       }
     })
   }
+  searchPost() { 
+    if (this.filter.title.trim() === '') { 
+      // Reset tìm kiếm nếu `name` trống
+      this.isSearching = false; 
+      this.filter.page = 1; 
+      this.filter.limit = 5; 
+      this.fetchPostPanigations();
+      this.getTotalPost();
+      return;
+    }
+    this.isSearching = true; 
+    this.postService.searchPost({ title: this.filter.title }).subscribe
+    ({ 
+      next: (res) => { 
+        this.data = res.data; 
+        this.total = res.data.length
+        this.filter.limit=10000000
+        console.log(this.data); 
+      }, 
+      error: (err) => {
+         console.log(err); 
+        },
+     complete: () => {
+       this.isSearching = false;
+       } }); 
+    
+      }
+  
 
 }

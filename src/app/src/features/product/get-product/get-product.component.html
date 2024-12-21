@@ -1,10 +1,12 @@
 <div class="container">
-  <div class="row">
-    <div class="col-6"><input type="text" ></div>
-    <div class="col-6">
-      <button class="btn btn-primary">Search</button>
+  <div class="row align-items-center">
+    <div class="col-auto">
+      <input type="text" class="form-control custom-input" [(ngModel)]="filter.name" placeholder="Enter search" (keydown.enter)="searchProduct()" >
     </div>
-  </div>
+    <div class="col-7">
+      <button class="btn btn-primary custom-button" (click)="searchProduct()">Search</button>
+    </div>
+    </div>
   <div class="row">
 
     <div class="col-12">
@@ -12,13 +14,20 @@
         <ngx-datatable style="margin-top: 20px" #dataTable [rows]="data" [messages]="{
           emptyMessage: 'No Data Found',
           totalMessage: 'Total'
-        }" [rowHeight]="40" [externalPaging]="true" [columnMode]="'force'" [limit]="filter.limit" [headerHeight]="40"
+        }" [rowHeight]="150" [externalPaging]="true" [columnMode]="'force'" [limit]="filter.limit" [headerHeight]="40"
           [footerHeight]="40" [scrollbarH]="true" [count]="total" class="tailwind-datatable"
           (page)="handlePageChange($event)">
-          
-          <ngx-datatable-column name="Image " prop="image">
+          <ngx-datatable-column name="Image" prop="image">
             <ng-template let-row="row" ngx-datatable-cell-template>
-              <img src="" alt="">
+              <div class="img-center">
+                <img src="https://jandtvietnam.com.vn/wp-content/uploads/2023/01/Jpet47222130-1-scaled.jpg" alt="Image" />
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+       
+          <ngx-datatable-column name="Seller Center" prop="productName">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+             {{row.SalesCenter.full_name}}
             </ng-template>
           </ngx-datatable-column>
           
@@ -29,11 +38,7 @@
           </ngx-datatable-column>
 
           
-          <ngx-datatable-column name="Sales Center" prop="productName">
-            <ng-template let-row="row" ngx-datatable-cell-template>
-             {{row.SalesCenter.full_name}}
-            </ng-template>
-          </ngx-datatable-column>
+         
 
          <ngx-datatable-column name="Status">
             <ng-template let-row="row" ngx-datatable-cell-template>

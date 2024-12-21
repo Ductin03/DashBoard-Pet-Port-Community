@@ -29,3 +29,66 @@
   height: 8px;
   border-radius: 50%;
 }
+.custom-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.custom-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon-box {
+  font-size: 2.5rem;
+  color: #0d6efd;
+}
+/* Tùy chỉnh thẻ card */
+.custom-card {
+  border: none;
+  border-radius: 15px; /* Bo góc mềm mại */
+  background: #e6f7ff; /* Màu nền xanh nước biển nhạt */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Bóng đổ nhẹ */
+  transition: all 0.3s ease-in-out; /* Hiệu ứng mượt */
+}
+
+/* Hover - Hiệu ứng khi rê chuột */
+.custom-card:hover {
+  transform: translateY(-8px); /* Card nhô lên */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Tăng bóng đổ */
+  background: #d1efff; /* Làm sáng màu nền */
+}
+
+/* Biểu tượng (icon) */
+.icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #b3e5fc; /* Nền xanh nước biển đậm hơn */
+  color: #0277bd; /* Màu biểu tượng xanh dương */
+  font-size: 1.8rem; /* Kích thước lớn hơn */
+  margin: 0 auto; /* Căn giữa */
+  transition: all 0.3s ease;
+}
+
+/* Hover vào biểu tượng */
+.custom-card:hover .icon-box {
+  background-color: #0277bd; /* Màu xanh đậm hơn khi hover */
+  color: #fff; /* Màu trắng cho icon */
+}
+
+/* Tiêu đề nhỏ */
+.text-muted {
+  font-size: 1rem; /* Cỡ chữ vừa phải */
+  color: #78909c; /* Màu xám xanh */
+}
+
+/* Chữ số chính */
+.fw-bold {
+  font-size: 1.75rem; /* Kích thước lớn */
+  color: #01579b; /* Màu xanh nước biển đậm */
+}

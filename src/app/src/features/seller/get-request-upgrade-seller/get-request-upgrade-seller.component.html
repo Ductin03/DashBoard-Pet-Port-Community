@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12">       
+        <app-card [showHeader]="false" blockClass="dashboard-card" *ngIf="data" >
+          <ngx-datatable style="margin-top: 20px" #dataTable [rows]="data" [messages]="{
+            emptyMessage: 'No Data Found',
+            totalMessage: 'Total'
+          }" [rowHeight]="150" [externalPaging]="true" [columnMode]="'force'"  [limit]="filter.limit" [headerHeight]="40"
+            [footerHeight]="40" [scrollbarH]="true"  class="tailwind-datatable" [count]="totalSeller"  (page)="handlePageChange($event)"
+            >
+
+            <ngx-datatable-column name="Store Name" prop="fullName">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row.store_name}}
+              </ng-template>
+            </ngx-datatable-column>
+      
+             <ngx-datatable-column name="Mã Thuế" prop="address">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.business_license}}
+              </ng-template>
+            </ngx-datatable-column>
+  
+         
+           <ngx-datatable-column name="Email">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <span >
+                  {{row.email}}
+                </span>
+               
+              </ng-template>
+              
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Detail">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <button type="button" class="btn btn-sm">
+                  <a [routerLink]="['detail',row.id]">
+                    <i antIcon type="edit" theme="outline"></i>
+                  </a>      
+                </button>                
+              </ng-template>    
+            </ngx-datatable-column>
+        
+            <ngx-datatable-column name="Action">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                  <button type="button" (click)="Approved(row.id)" class="btn btn-sm btn-secondary" >
+                      <i theme="outline"></i>Chờ Duyệt
+                  </button>
+              </ng-template>       
+            </ngx-datatable-column>
+
+          </ngx-datatable>
+        </app-card>
+      </div>
+    </div>
+  </div>

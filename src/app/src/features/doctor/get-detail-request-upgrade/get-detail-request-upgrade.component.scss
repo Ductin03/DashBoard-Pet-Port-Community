@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    margin: 30px;
+}
+.profile-left {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+}
+.profile-left img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.profile-left h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+.profile-left p {
+    color: #777;
+    margin: 10px 0;
+}
+.profile-left .social-icons i {
+    margin: 0 10px;
+    font-size: 18px;
+    color: #333;
+}
+.profile-right {
+    flex: 2;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.profile-right h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+.profile-right .info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.profile-right .info-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+.profile-right .info-table th {
+    padding: 10px;
+    background-color: #f4f7fa;
+}
+.certificate-img {
+    margin-top: 20px;
+    text-align: center;
+}
+.certificate-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}

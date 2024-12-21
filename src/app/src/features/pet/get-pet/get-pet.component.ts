@@ -49,6 +49,11 @@ export class GetPetComponent {
       }
     })
   }
+  public handleSearch() {
+    this.filter.page = 0
+    console.log("aa");
+    
+  }
 
   public handlePageChange($event: any) {
     console.log($event.offset);

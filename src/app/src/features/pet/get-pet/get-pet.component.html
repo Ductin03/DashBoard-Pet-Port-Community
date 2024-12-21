@@ -1,10 +1,12 @@
 <div class="container">
-  <div class="row">
-    <div class="col-6"><input type="text" ></div>
-    <div class="col-6">
-      <button class="btn btn-primary">Search</button>
+  <div class="row align-items-center">
+    <div class="col-auto">
+      <input type="text" class="form-control custom-input" placeholder="Enter search"  (click)="handleSearch()">
     </div>
-  </div>
+    <div class="col-7">
+      <button class="btn btn-primary custom-button">Search</button>
+    </div>
+    </div>
   <div class="row">
 
     <div class="col-12">  
@@ -12,13 +14,15 @@
         <ngx-datatable style="margin-top: 20px" #dataTable [rows]="data" [messages]="{
           emptyMessage: 'No Data Found',
           totalMessage: 'Total'
-        }" [rowHeight]="40" [externalPaging]="true" [columnMode]="'force'" [limit]="filter.limit" [headerHeight]="40"
+        }" [rowHeight]="150" [externalPaging]="true" [columnMode]="'force'" [limit]="filter.limit" [headerHeight]="40"
           [footerHeight]="40" [scrollbarH]="true" [count]="total" class="tailwind-datatable"
           (page)="handlePageChange($event)">
 
-          <ngx-datatable-column name="Image " prop="image">
+          <ngx-datatable-column name="Image" prop="image">
             <ng-template let-row="row" ngx-datatable-cell-template>
-              <img src="" alt="">
+              <div class="img-center">
+                <img src="https://inkythuatso.com/uploads/thumbnails/800/2023/02/hinh-anh-cho-con-de-thuong-chay-tung-tang-1-24-11-43-28.jpg" alt="Image" />
+              </div>
             </ng-template>
           </ngx-datatable-column>
           

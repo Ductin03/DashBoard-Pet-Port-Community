@@ -43,29 +43,29 @@ export const NavigationItems: NavigationItem[] = [
     icon: 'setting',
     children: [
       {
-        id: 'pet',
-        title: 'Pet Management',
-        type: 'item',
-        classes: 'nav-item',
-        url: 'pet',
-        icon: 'profile',
-        breadcrumbs: false
-      },
-      {
-        id: 'product',
-        title: 'Product Management',
-        type: 'item',
-        classes: 'nav-item',
-        url: 'product',
-        icon: 'profile',
-        breadcrumbs: false
-      },
-      {
         id: 'post',
         title: 'Post Management',
         type: 'item',
         classes: 'nav-item',
         url: 'posts',
+        icon: 'profile',
+        breadcrumbs: false
+      },
+      {
+        id: 'doctor',
+        title: 'Doctor Management',
+        type: 'item',
+        classes: 'nav-item',
+        url: 'doctors',
+        icon: 'profile',
+        breadcrumbs: false
+      },
+      {
+        id: 'seller',
+        title: 'Seller Management',
+        type: 'item',
+        classes: 'nav-item',
+        url: 'sellers',
         icon: 'profile',
         breadcrumbs: false
       }

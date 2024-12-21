@@ -1,0 +1,31 @@
+.custom-input {
+    width: 250px; /* Chiều rộng cho ô input */
+  }
+  
+  .custom-button {
+    width: 80px; /* Chiều rộng cho nút */
+    padding: 0; /* Đảm bảo kích thước nút không bị lệch */
+    height: 40px; /* Đảm bảo chiều cao bằng với input */
+  }
+
+  
+
+  
+  .img-center {
+    display: flex;
+    justify-content: flex-start; /* Đảm bảo các hình ảnh bắt đầu từ cạnh trái */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    height: 100%;
+  }
+  
+  .img-center img {
+    width: 125px; /* Đặt chiều rộng của hình ảnh */
+    height: 125px; /* Đặt chiều cao của hình ảnh */
+    object-fit: cover; /* Đảm bảo hình ảnh không bị biến dạng */
+    margin-right: 10px; /* Khoảng cách giữa ảnh và nội dung bên cạnh */
+    margin-bottom: 10px; /* Khoảng cách giữa các ảnh */
+  }
+  
+  
+  
+

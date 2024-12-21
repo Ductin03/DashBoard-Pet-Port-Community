@@ -14,6 +14,8 @@ import { IconService } from '@ant-design/icons-angular';
 import { FallOutline, GiftOutline, MessageOutline, RiseOutline, SettingOutline } from '@ant-design/icons-angular/icons';
 import { OrderService } from 'src/app/src/services/order.service';
 import { error } from 'console';
+import { DoctorService } from 'src/app/src/services/doctor.service';
+import { SellerService } from 'src/app/src/services/seller.service';
 
 @Component({
   selector: 'app-default',
@@ -31,12 +33,18 @@ import { error } from 'console';
 })
 export class DefaultComponent {
   data:any;
+  totalDoctor:any;
+  totalSeller:any;
   constructor(private iconService: IconService) {
     this.iconService.addIcon(...[RiseOutline, FallOutline, SettingOutline, GiftOutline, MessageOutline]);
   }
   private orderServices=inject(OrderService)
+  private doctorService = inject(DoctorService)
+  private sellerService = inject(SellerService)
   ngOnInit(){
     this.getOrder()
+    this.getTotalDoctor()
+    this.getTotalSeller()
   }
   getOrder(){
     this.orderServices.getAllOrder().subscribe({
@@ -49,47 +57,46 @@ export class DefaultComponent {
       }
     })
   }
+  
+  getTotalDoctor(){
+    this.doctorService.getTotalDoctor().subscribe({
+      next:(res)=>{
+        this.totalDoctor=res.data.length
+        console.log(this.totalDoctor);   
+        this.AnalyticEcommerce[0].amount = this.totalDoctor.toString();     
+      },
+      error:(err)=>{
+        console.log(err);
+        
+      }
+    })
+  }
+  getTotalSeller(){
+    this.sellerService.getTotalSeller().subscribe({
+      next:(res)=>{
+        this.totalSeller=res.data.length
+        console.log(this.totalSeller);
+        this.AnalyticEcommerce[2].amount = this.totalSeller.toString();     
+      },
+      error:(err)=>{
+        console.log(err);
+        
+      }
+    })
+  }
 
   AnalyticEcommerce = [
     {
-      title: 'Total Page Views',
-      amount: '4,42,236',
-      background: 'bg-light-primary ',
-      border: 'border-primary',
-      icon: 'rise',
-      percentage: '59.3%',
-      color: 'text-primary',
-      number: '35,000'
+      title: 'Total Doctors',
+      amount: '0'
     },
     {
       title: 'Total Users',
-      amount: '78,250',
-      background: 'bg-light-primary ',
-      border: 'border-primary',
-      icon: 'rise',
-      percentage: '70.5%',
-      color: 'text-primary',
-      number: '8,900'
-    },
-    {
-      title: 'Total Order',
-      amount: '18,800',
-      background: 'bg-light-warning ',
-      border: 'border-warning',
-      icon: 'fall',
-      percentage: '27.4%',
-      color: 'text-warning',
-      number: '1,943'
+      amount: '0',
     },
     {
       title: 'Total Sales',
-      amount: '$35,078',
-      background: 'bg-light-warning ',
-      border: 'border-warning',
-      icon: 'fall',
-      percentage: '27.4%',
-      color: 'text-warning',
-      number: '$20,395'
+      amount: '0'
     }
   ];
 
