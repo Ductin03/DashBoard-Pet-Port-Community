@@ -92,3 +92,13 @@
   font-size: 1.75rem; /* Kích thước lớn */
   color: #01579b; /* Màu xanh nước biển đậm */
 }
+.small-link {
+  font-size: 12px; /* Làm chữ nhỏ */
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.small-link:hover {
+  text-decoration: none; /* Bỏ gạch chân khi hover */
+  color: #0056b3; /* Đổi màu khi hover */
+}

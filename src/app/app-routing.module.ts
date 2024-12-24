@@ -72,6 +72,10 @@ const routes: Routes = [
       {
         path: 'user/edit/:id',
         loadComponent: () => import('../app/src/features/user/edit-user/edit-user.component').then((c) => c.EditUserComponent)
+      },  
+      {
+        path: 'pet-owner',
+        loadComponent: () => import('../app/src/features/user/get-petowner/get-petowner.component').then((c) => c.GetPetownerComponent)
       }
 
 

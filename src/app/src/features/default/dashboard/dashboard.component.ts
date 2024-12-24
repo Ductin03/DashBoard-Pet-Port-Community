@@ -16,6 +16,8 @@ import { OrderService } from 'src/app/src/services/order.service';
 import { error } from 'console';
 import { DoctorService } from 'src/app/src/services/doctor.service';
 import { SellerService } from 'src/app/src/services/seller.service';
+import { UserService } from 'src/app/src/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-default',
@@ -35,27 +37,34 @@ export class DefaultComponent {
   data:any;
   totalDoctor:any;
   totalSeller:any;
+  totalPetOwner:any;
   constructor(private iconService: IconService) {
     this.iconService.addIcon(...[RiseOutline, FallOutline, SettingOutline, GiftOutline, MessageOutline]);
   }
-  private orderServices=inject(OrderService)
+  private userService=inject(UserService)
   private doctorService = inject(DoctorService)
   private sellerService = inject(SellerService)
+  private router = inject(Router)
   ngOnInit(){
-    this.getOrder()
+    this.getPetOwner()
     this.getTotalDoctor()
     this.getTotalSeller()
   }
-  getOrder(){
-    this.orderServices.getAllOrder().subscribe({
+  getPetOwner(){
+    this.userService.getAllPetowner().subscribe({
       next:(res)=>{
-        this.data=res.data;
+        this.data=res;
+        this.totalPetOwner = res.length;
+        this.AnalyticEcommerce[1].amount = this.totalPetOwner.toString();   
         console.log(this.data);  
       },
       error:(err)=>{
         console.log(err);
       }
     })
+  }
+  loadMore(){
+    this.router.navigateByUrl("admin/pet-owner")
   }
   
   getTotalDoctor(){

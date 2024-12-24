@@ -1,0 +1,14 @@
+.img-center {
+    display: flex;
+    justify-content: flex-start; /* Đảm bảo các hình ảnh bắt đầu từ cạnh trái */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    height: 100%;
+  }
+  
+  .img-center img {
+    width: 125px; /* Đặt chiều rộng của hình ảnh */
+    height: 125px; /* Đặt chiều cao của hình ảnh */
+    object-fit: cover; /* Đảm bảo hình ảnh không bị biến dạng */
+    margin-right: 10px; /* Khoảng cách giữa ảnh và nội dung bên cạnh */
+    margin-bottom: 10px; /* Khoảng cách giữa các ảnh */
+  }

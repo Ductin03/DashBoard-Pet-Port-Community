@@ -7,17 +7,15 @@ import {
   HttpErrorResponse
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, switchMap, filter, take } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
-import { jwtDecode } from 'jwt-decode';
-
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // Add auth header if token exists and not expired
+    // Thêm token vào header nếu token tồn tại và không hết hạn
     const token = this.authService.token$.value;
     if (token && !this.authService.isTokenExpired(token)) {
       request = this.addTokenHeader(request, token);
@@ -25,9 +23,9 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        if ((error.status === 401 || error.status === 403) && 
-            !request.url.includes('auth/refresh-token')) {
-          return this.handle401Error(request, next);
+        // Chỉ xử lý lỗi mà không gọi refresh-token
+        if (error.status === 401 || error.status === 403) {
+          this.authService.logout(); // Ví dụ: Đăng xuất nếu gặp lỗi 401/403
         }
         return throwError(() => error);
       })
@@ -40,29 +38,4 @@ export class AuthInterceptor implements HttpInterceptor {
       withCredentials: true
     });
   }
-
-  private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
-    if (!this.authService.isRefreshing) {
-      this.authService.isRefreshing = true;
-      this.authService.refreshTokenSubject.next(null);
-
-      return this.authService.refreshToken().pipe(
-        switchMap((token: string) => {
-          this.authService.isRefreshing = false;
-          return next.handle(this.addTokenHeader(request, token));
-        }),
-        catchError((error) => {
-          this.authService.isRefreshing = false;
-          return throwError(() => error);
-        })
-      );
-    }
-
-    return this.authService.refreshTokenSubject.pipe(
-      filter(token => token !== null),
-      take(1),
-      switchMap(token => next.handle(this.addTokenHeader(request, token)))
-    );
-  }
- 
 }

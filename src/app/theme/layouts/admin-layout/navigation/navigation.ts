@@ -21,7 +21,7 @@ export interface NavigationItem {
 export const NavigationItems: NavigationItem[] = [
   {
     id: 'dashboard',
-    title: 'Dashboard',
+    title: '',
     type: 'group',
     icon: 'icon-navigation',
     children: [
@@ -66,6 +66,15 @@ export const NavigationItems: NavigationItem[] = [
         type: 'item',
         classes: 'nav-item',
         url: 'sellers',
+        icon: 'profile',
+        breadcrumbs: false
+      },
+      {
+        id: 'pet-owner',
+        title: 'PetOwner Management',
+        type: 'item',
+        classes: 'nav-item',
+        url: 'pet-owner',
         icon: 'profile',
         breadcrumbs: false
       }

@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+  
+      <div class="col-12">
+        <app-card [showHeader]="false" blockClass="dashboard-card" *ngIf="data">
+          <ngx-datatable style="margin-top: 20px" #dataTable [rows]="data" [messages]="{
+            emptyMessage: 'No Data Found',
+            totalMessage: 'Total'
+          }" [rowHeight]="150" [externalPaging]="true" [columnMode]="'force'" [limit]="filter.limit" [headerHeight]="40"
+            [footerHeight]="40" [scrollbarH]="true" [count]="total" class="tailwind-datatable"
+           >
+            <ngx-datatable-column name="Image" prop="image">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <div class="img-center">
+                  <img src="https://jandtvietnam.com.vn/wp-content/uploads/2023/01/Jpet47222130-1-scaled.jpg" alt="Image" />
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+         
+            <ngx-datatable-column name="Họ và Tên" prop="productName">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row.full_name}}
+              </ng-template>
+            </ngx-datatable-column>
+            
+            <ngx-datatable-column name="Email" prop="productName">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row.email}}
+              </ng-template>
+            </ngx-datatable-column>
+  
+            
+           
+  
+            <ngx-datatable-column name="Số điện thoại" prop="Số điện thoại">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                 {{row.phone}}
+                </ng-template>
+              </ngx-datatable-column>
+            <ngx-datatable-column name="Detail">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <button type="button" class="btn btn-sm">
+                  <a [routerLink]="['detail',row.id]">
+                    <i antIcon type="edit" theme="outline"></i>
+                  </a>
+            
+                </button>
+               
+              </ng-template>
+              
+            </ngx-datatable-column>
+  
+          </ngx-datatable>
+        </app-card>
+      </div>
+    </div>
+  </div>
