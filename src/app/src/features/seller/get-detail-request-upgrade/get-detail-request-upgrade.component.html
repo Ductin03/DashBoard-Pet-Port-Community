@@ -10,11 +10,11 @@
 
 <div class="container" style="margin: 0px;">
     <div class="shop-left">
-        <img src="https://invietnhat.vn/wp-content/uploads/2023/08/nhung-luu-y-ve-noi-dung.jpg" alt="Shop Logo">
+        <img src={{record?.store_logo}} alt="Shop Logo">
         <h3>{{record?.store_name}}</h3>
-        <p>Sales Center: {{record?.full_name}}</p>
-        <p>Birth Day: {{record?.date_of_birth}}</p>
-        <p>Mã Thuế: {{record?.business_license}}</p>
+        <p><i class="fas fa-birthday-cake"></i> Ngày sinh: {{record?.date_of_birth}}</p>
+        <p><i class="fas fa-clock"></i> Giờ mở cửa: {{record?.opening_time}}</p>
+        <p><i class="fas fa-clock"></i> Giờ đóng cửa: {{record?.closing_time}}</p>
     </div>
 
     <div class="shop-right">
@@ -37,6 +37,10 @@
                 <td>{{record?.address}}</td>
             </tr>
             <tr>
+                <th>Số giấy phép kinh doanh</th>
+                <td>{{record?.business_license}}</td>
+            </tr>
+            <tr>
                 <th>Mô Tả</th>
                 <td>{{record?.
                     store_description
@@ -47,7 +51,7 @@
         <!-- Giấy phép kinh doanh -->
         <div class="license-img">
             <h4>Giấy Phép Kinh Doanh</h4>
-            <img src="https://invietnhat.vn/wp-content/uploads/2023/08/nhung-luu-y-ve-noi-dung.jpg" alt="Giấy Phép Kinh Doanh">
+            <img src={{record?.certificate_image}} alt="Giấy Phép Kinh Doanh">
         </div>
     </div>
 </div>

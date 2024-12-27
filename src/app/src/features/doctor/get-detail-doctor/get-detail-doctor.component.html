@@ -59,6 +59,21 @@
             padding-bottom: 10px;
             color: #333;
         }
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -66,51 +81,64 @@
 <div class="container">
     <!-- Phần bên trái -->
     <div class="profile-left">
-        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Profile Picture">
+        <img src={{record?.avatar_url}} alt="Profile Picture">
         <h3>{{record?.full_name}}</h3>
         <p>{{record?.role[1]}}</p>
-        <p>Birth Day: {{record?.date_of_birth}}</p>
-        <p>Opening Time: {{record?.opening_time}}</p>
-        <p>Closing Time: {{record?.closing_time}}</p>
+        <p><i class="fas fa-birthday-cake"></i> Ngày sinh: {{record?.date_of_birth}}</p>
+        <p><i class="fas fa-clock"></i> Giờ mở cửa: {{record?.opening_time}}</p>
+        <p><i class="fas fa-clock"></i> Giờ đóng cửa: {{record?.closing_time}}</p>
     </div>
 
     <!-- Phần bên phải -->
     <div class="profile-right">
-        <h4>Profile Information</h4>
+        <h4>Thông tin Bác Sĩ</h4>
         <table class="info-table">
             <tr>
-                <th>Name</th>
+                <th>Họ và Tên</th>
                 <td>{{record?.full_name}}</td>
+            </tr>
+            <tr>
+                <th>Kinh nghiệm</th>
+                <td>{{record?.experience_years}} năm</td>
             </tr>
             <tr>
                 <th>Email</th>
                 <td>{{record?.email}}</td>
             </tr>
             <tr>
-                <th>Phone</th>
+                <th>Số điện thoại</th>
                 <td>{{record?.phone}}</td>
             </tr>
             <tr>
-                <th>Address</th>
+                <th>Địa chỉ</th>
                 <td>{{record?.address}}</td>
             </tr>
             <tr>
                 <th>CCCD</th>
                 <td>{{record?.cccd}}</td>
             </tr>
+            <tr>
+                <th>Số chứng chỉ</th>
+                <td>{{record?.practice_certificate}}</td>
+            </tr>
         </table>
 
         <!-- Chứng chỉ hành nghề -->
         <div class="certificate-img">
             <h4>Chứng chỉ hành nghề</h4>
-            <img src="https://bacsithucung.vn/wp-content/uploads/2022/01/chung-chi-hanh-nghe-2.png" alt="Chứng chỉ hành nghề">
+            <img src={{record?.certificate_image}} alt="Chứng chỉ hành nghề">
         </div>
 
         <!-- Ảnh căn cước công dân 2 mặt -->
         <div class="cccd-images">
             <h4>Ảnh căn cước công dân</h4>
-            <img src="https://cdn.tgdd.vn/Files/2021/04/24/1345947/meo-can-biet-khi-di-lam-can-cuoc-cong-dan-cccd-20_800x450.jpg" alt="CCCD Mặt Trước">
-            <img src="https://tailieu.antoanthongtin.vn/Files/files/site-2/images/20230428/cccd(1).jpg" alt="CCCD Mặt Sau">
+            <img src={{record?.cccd_front_image}} alt="CCCD Mặt Trước">
+            <img src={{record?.cccd_back_image}}  alt="CCCD Mặt Sau">
+        </div>
+        <div class="text-center">
+            <a href="javascript:history.back()" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Quay lại
+            </a>
         </div>
     </div>
 </div>

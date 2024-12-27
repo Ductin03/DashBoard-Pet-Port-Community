@@ -30,18 +30,18 @@
             <ngx-datatable-column name="Avatar" prop="image">
               <ng-template let-row="row" ngx-datatable-cell-template>
                 <div class="img-center">
-                  <img src="https://ben.com.vn/tin-tuc/wp-content/uploads/2021/12/anh-che-cho-hai-huoc-cho-dien-thoai-4.jpg" alt="Image" />
+                  <img src={{row?.doctor_avatar}} alt="Image" />
                 </div>
               </ng-template>
             </ngx-datatable-column>
 
-            <ngx-datatable-column name="Full Name" prop="fullName">
+            <ngx-datatable-column name="Họ và Tên" prop="fullName">
               <ng-template let-row="row" ngx-datatable-cell-template>
                 {{row.full_name}}
               </ng-template>
             </ngx-datatable-column>
       
-             <ngx-datatable-column name="Address" prop="address">
+             <ngx-datatable-column name="Địa chỉ" prop="address">
               <ng-template let-row="row" ngx-datatable-cell-template>
                 {{row.clinic_address}}
               </ng-template>
@@ -58,7 +58,7 @@
               
             </ngx-datatable-column>
   
-            <ngx-datatable-column name="Detail">
+            <ngx-datatable-column name="Xem chi tiết">
               <ng-template let-row="row" ngx-datatable-cell-template>
                 <button type="button" class="btn btn-sm">
                   <a [routerLink]="['detail',row.id]">

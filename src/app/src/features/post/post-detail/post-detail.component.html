@@ -4,28 +4,33 @@
         <aside class="col-lg-6">
           <div class="border rounded-4 mb-3 d-flex justify-content-center">
             <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp">
-              <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="https://bizweb.dktcdn.net/100/091/443/products/hieuunganh-com-5e918dd032c21.png?v=1586597434450" />
+              <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src={{record?.image_url}} />
             </a>
         </div>
         </aside>
         <main class="col-lg-6">
           <div class="ps-lg-3">
             <h4 class="title text-dark">
-              {{record?.title}}
+              Tiêu đề: {{record?.title}}
             </h4>
             <p>
-              {{record?.content}}
+              Nội dung: {{record?.content}}
             </p>
   
             <div class="row">
-              <dt class="col-3">Like:</dt>
+              <dt class="col-3">Lượt thích:</dt>
               <dd class="col-9">{{record?.counterLike}}</dd>
   
-              <dt class="col-3">PostOwner</dt>
+              <dt class="col-3">Người đăng</dt>
               <dd class="col-9">{{record?.PostOwner?.full_name}}</dd>
             </div>
-  
             <hr />
+            <!-- Nút Back -->
+            <div class="mt-4">
+                <a href="javascript:history.back()" class="btn btn-primary rounded-pill">
+                    <i class="bi bi-arrow-left"></i> Quay lại
+                </a>
+            </div>
       </div>
 
 

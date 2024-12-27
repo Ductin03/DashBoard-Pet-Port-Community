@@ -9,15 +9,15 @@
               [footerHeight]="40" [scrollbarH]="true"  class="tailwind-datatable" [count]="totalDoctor"  (page)="handlePageChange($event)"
               >
   
-              <ngx-datatable-column name="Full Name" prop="fullName">
+              <ngx-datatable-column name="Họ và Tên" prop="fullName">
                 <ng-template let-row="row" ngx-datatable-cell-template>
-                 {{row.clinic_address}}
+                 {{row.full_name}}
                 </ng-template>
               </ngx-datatable-column>
         
-               <ngx-datatable-column name="Address" prop="address">
+               <ngx-datatable-column name="Địa chỉ" prop="address">
                 <ng-template let-row="row" ngx-datatable-cell-template>
-                  {{row.full_name}}
+                  {{row.clinic_address}}
                 </ng-template>
               </ngx-datatable-column>
     
@@ -32,7 +32,7 @@
                 
               </ngx-datatable-column>
  
-              <ngx-datatable-column name="Detail">
+              <ngx-datatable-column name="Xem chi tiết">
                 <ng-template let-row="row" ngx-datatable-cell-template>
                   <button type="button" class="btn btn-sm">
                     <a [routerLink]="['detail',row.id]">
@@ -42,10 +42,10 @@
                 </ng-template>    
               </ngx-datatable-column>
           
-              <ngx-datatable-column name="Action">
+              <ngx-datatable-column name="Hành động">
                 <ng-template let-row="row" ngx-datatable-cell-template>
                     <button type="button" (click)="Approved(row.id)" class="btn btn-sm btn-secondary" >
-                        <i theme="outline"></i>Chờ Duyệt
+                        <i theme="outline"></i>Duyệt
                     </button>
                 </ng-template>       
               </ngx-datatable-column>

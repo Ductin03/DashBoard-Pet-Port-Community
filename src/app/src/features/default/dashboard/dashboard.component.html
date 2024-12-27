@@ -23,6 +23,7 @@
     <table class="table table-hover mb-0">
       <thead>
         <tr>
+          <th>STT</th>
           <th>Tên người dùng</th>
           <th>Email</th>
           <th>Ngày Sinh</th>
@@ -30,7 +31,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of data">
+        <tr *ngFor="let item of displayedUsers">
+          <td>{{ item.id }}</td>
           <td>{{ item.full_name }}</td>
           <td>{{ item.email }}</td>
           <td>{{ item.date_of_birth }}</td>

@@ -30,18 +30,18 @@
             <ngx-datatable-column name="Store Logo" prop="image">
               <ng-template let-row="row" ngx-datatable-cell-template>
                 <div class="img-center">
-                  <img src="https://invietnhat.vn/wp-content/uploads/2023/08/nhung-luu-y-ve-noi-dung.jpg" alt="Image" />
+                  <img src={{row.store_logo}} alt="Image" />
                 </div>
               </ng-template>
             </ngx-datatable-column>
 
-            <ngx-datatable-column name="Store Name" prop="fullName">
+            <ngx-datatable-column name="Tên cửa hàng" prop="fullName">
               <ng-template let-row="row" ngx-datatable-cell-template>
                 {{row.store_name}}
               </ng-template>
             </ngx-datatable-column>
       
-             <ngx-datatable-column name="Address" prop="address">
+             <ngx-datatable-column name="Địa chỉ" prop="address">
               <ng-template let-row="row" ngx-datatable-cell-template>
                 {{row.store_address}}
               </ng-template>
@@ -58,7 +58,7 @@
               
             </ngx-datatable-column>
   
-            <ngx-datatable-column name="Detail">
+            <ngx-datatable-column name="Xem chi tiết">
               <ng-template let-row="row" ngx-datatable-cell-template>
                 <button type="button" class="btn btn-sm">
                   <a [routerLink]="['detail',row.id]">

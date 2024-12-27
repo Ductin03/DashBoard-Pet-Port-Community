@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { User, AuthState } from './auth.type';
 import { jwtDecode } from 'jwt-decode';
-
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -55,7 +55,7 @@ export class AuthService {
     return storedIsAuthenticated ? JSON.parse(storedIsAuthenticated) : false;
   }
 
-  private getStoredRole(): string[] {
+  public getStoredRole(): string[] {
     const storedRole = localStorage.getItem('role');
     return storedRole ? storedRole.split(',') : [];
   }
@@ -88,22 +88,36 @@ export class AuthService {
     this.updateState({ user });
   }
 
+  
   login(email: string, password: string): Observable<any> {
     this.updateState({ isLoading: true, error: null });
-
+  
     return this.http.post(`${this.AUTH_URL}/login`, { email, password }, this.setupHttpDefaults()).pipe(
       tap((response: any) => {
         const { user, token, refreshToken } = response;
         const role = user.role;
-
-
+  
+        // Kiểm tra quyền (ví dụ: nếu không phải là 'admin', không cho phép truy cập vào trang admin)
+        if (!role.includes('Admin')) {
+          Swal.fire({
+                      icon: 'warning',
+                      title: 'Quyền của bạn không được phép truy cập',
+                      text: 'Vui lòng đăng nhập bằng tài khoản admin!',
+                      showConfirmButton: true,
+                      confirmButtonText: 'OK',
+                    });
+          const errorMessage = 'You do not have the required permissions to access the admin page';
+          this.updateState({ error: errorMessage, isLoading: false });
+          this.logout(); // Đăng xuất nếu không có quyền
+          throw new Error(errorMessage); // Ngừng quá trình đăng nhập
+        }
+  
         localStorage.setItem('user', JSON.stringify(user));
         localStorage.setItem('isAuthenticated', 'true');
         localStorage.setItem('role', role);
         localStorage.setItem('token', token);
         localStorage.setItem('refreshToken', refreshToken);
-
-
+  
         this.updateState({
           user,
           role,
@@ -113,8 +127,7 @@ export class AuthService {
           isLoading: false,
           error: null
         });
-
-
+  
         this.user$.next(user);
         this.isAuthenticated$.next(true);
         this.token$.next(token);
@@ -126,6 +139,7 @@ export class AuthService {
       })
     );
   }
+  
 
   logout(): Observable<any> {
     this.updateState({ isLoading: true, error: null });

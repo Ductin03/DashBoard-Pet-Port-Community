@@ -10,10 +10,10 @@
 
 <div class="container" style="margin: 0px;">
     <div class="shop-left">
-        <img src="https://invietnhat.vn/wp-content/uploads/2023/08/nhung-luu-y-ve-noi-dung.jpg" alt="Shop Logo">
+        <img src={{record?.store_logo}} alt="Shop Logo">
         <h3>{{record?.store_name}}</h3>
-        <p>Sales Center: {{record?.full_name}}</p>
-        <p>Birth Day: {{record?.date_of_birth}}</p>
+        <p>Chủ cửa hàng: {{record?.full_name}}</p>
+        <p><i class="fas fa-birthday-cake"></i> Ngày sinh: {{record?.date_of_birth}}</p>
         <p>Mã Thuế: {{record?.business_license}}</p>
     </div>
 
@@ -47,7 +47,7 @@
         <!-- Giấy phép kinh doanh -->
         <div class="license-img">
             <h4>Giấy Phép Kinh Doanh</h4>
-            <img src="https://invietnhat.vn/wp-content/uploads/2023/08/nhung-luu-y-ve-noi-dung.jpg" alt="Giấy Phép Kinh Doanh">
+            <img src={{record?.business_license_url}} alt="Giấy Phép Kinh Doanh">
         </div>
     </div>
 </div>

@@ -27,7 +27,7 @@ export const NavigationItems: NavigationItem[] = [
     children: [
       {
         id: 'default',
-        title: 'Dashboard',
+        title: 'Trang chủ',
         type: 'item',
         classes: 'nav-item',
         url: 'dashboard',
@@ -38,13 +38,13 @@ export const NavigationItems: NavigationItem[] = [
   },
   {
     id: 'management',
-    title: 'Management',
+    title: 'Quản lý',
     type: 'group',
     icon: 'setting',
     children: [
       {
         id: 'post',
-        title: 'Post Management',
+        title: 'Quản lý bài viết',
         type: 'item',
         classes: 'nav-item',
         url: 'posts',
@@ -53,7 +53,7 @@ export const NavigationItems: NavigationItem[] = [
       },
       {
         id: 'doctor',
-        title: 'Doctor Management',
+        title: 'Quản lý bác sĩ',
         type: 'item',
         classes: 'nav-item',
         url: 'doctors',
@@ -62,7 +62,7 @@ export const NavigationItems: NavigationItem[] = [
       },
       {
         id: 'seller',
-        title: 'Seller Management',
+        title: 'Quản lý cửa hàng',
         type: 'item',
         classes: 'nav-item',
         url: 'sellers',
@@ -71,7 +71,7 @@ export const NavigationItems: NavigationItem[] = [
       },
       {
         id: 'pet-owner',
-        title: 'PetOwner Management',
+        title: 'Quản lý chủ vật nuôi',
         type: 'item',
         classes: 'nav-item',
         url: 'pet-owner',

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -11,4 +11,10 @@ export class UserService {
   getAllPetowner():Observable<any>{
     return this.http.get<any>(this.apiUrl);   
   }
+  // editAdmin(userId:string,productData:any):Observable<any>{
+
+  //   const headers=new HttpHeaders({'Content-type':'application/json'});
+
+  //   return this.http.put<any>(`${this.apiUrl}/${userId}`, productData,{headers})
+  // }
 }

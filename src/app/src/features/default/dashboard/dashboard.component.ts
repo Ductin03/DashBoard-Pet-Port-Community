@@ -36,8 +36,10 @@ import { Router } from '@angular/router';
 export class DefaultComponent {
   data:any;
   totalDoctor:any;
+  displayedUsers: any[] = [];
   totalSeller:any;
   totalPetOwner:any;
+  limit: number = 5;
   constructor(private iconService: IconService) {
     this.iconService.addIcon(...[RiseOutline, FallOutline, SettingOutline, GiftOutline, MessageOutline]);
   }
@@ -55,6 +57,7 @@ export class DefaultComponent {
       next:(res)=>{
         this.data=res;
         this.totalPetOwner = res.length;
+        this.displayedUsers = this.data.slice(0, this.limit);
         this.AnalyticEcommerce[1].amount = this.totalPetOwner.toString();   
         console.log(this.data);  
       },
@@ -73,6 +76,7 @@ export class DefaultComponent {
         this.totalDoctor=res.data.length
         console.log(this.totalDoctor);   
         this.AnalyticEcommerce[0].amount = this.totalDoctor.toString();     
+        console.log(this.displayedUsers);
       },
       error:(err)=>{
         console.log(err);
@@ -96,15 +100,15 @@ export class DefaultComponent {
 
   AnalyticEcommerce = [
     {
-      title: 'Total Doctors',
+      title: 'Tổng bác sĩ',
       amount: '0'
     },
     {
-      title: 'Total Users',
+      title: 'Tổng chủ vật nuôi',
       amount: '0',
     },
     {
-      title: 'Total Sales',
+      title: 'Tổng cửa hàng',
       amount: '0'
     }
   ];

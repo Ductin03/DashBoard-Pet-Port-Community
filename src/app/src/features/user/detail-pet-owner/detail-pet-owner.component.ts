@@ -1,17 +1,18 @@
 import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from 'src/app/src/services/doctor.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 
 @Component({
-  selector: 'app-view-user',
+  selector: 'app-detail-pet-owner',
   standalone: true,
-  imports: [SharedModule],
-  templateUrl: './view-user.component.html',
-  styleUrl: './view-user.component.scss'
+  imports: [SharedModule, FormsModule],
+  templateUrl: './detail-pet-owner.component.html',
+  styleUrl: './detail-pet-owner.component.scss'
 })
-export class ViewUserComponent {
-  data: any;;
+export class DetailPetOwnerComponent {
+data: any;;
   total:any;  
   userId:string;
 
@@ -37,7 +38,4 @@ export class ViewUserComponent {
       }
     })
   }
-  
-
-  
 }
