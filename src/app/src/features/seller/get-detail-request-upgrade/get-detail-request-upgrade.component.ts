@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SellerService } from 'src/app/src/services/seller.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-get-detail-request-upgrade',
@@ -32,4 +33,25 @@ sellerId:string='';
       }
     })
 }
+Approved(requestId:string){
+      this.GetSellerByIdService.approveSeller(requestId).subscribe({
+        next:(res)=>{
+          if(res){
+           Swal.fire({
+                                   icon: 'success',
+                                   title: 'Duyệt thành công',
+                                   showConfirmButton: true,
+                                   confirmButtonText: 'OK',
+                                 });
+          }
+        },
+        error:(err)=>{
+          if(err.status==500){
+            alert("Quyền đã được duyệt hoặc yêu cầu không hợp lệ")
+          }
+          
+        }
+      })
+    }
+
 }

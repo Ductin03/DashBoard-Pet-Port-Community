@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from 'src/app/src/services/doctor.service';
+import { UserService } from 'src/app/src/services/user.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 
 @Component({
@@ -23,6 +24,7 @@ export class EditUserComponent {
   userId:any;
 
   private editAdmin = inject(DoctorService);
+  private edit = inject(UserService)
   private route = inject(ActivatedRoute)
   ngOnInit(){
     
@@ -46,5 +48,28 @@ export class EditUserComponent {
         console.log(err);
       }
     });
+  }
+  onSubmit(){
+    const body={
+      full_name:this.full_name,
+      address : this.address,
+      date_of_birth : this.date_of_birth,
+      email : this.email,
+      gender : this.gender,
+      phone : this.phone
+    };
+    
+    console.log(body);
+    this.edit.editAdmin(this.userId,body).subscribe({
+      next:(res)=>{
+        
+        alert("Edit Success");
+        this.getUserById();
+      },
+      error:(err)=>{
+        console.log(err);      
+      }
+    })
+  
   }
 }

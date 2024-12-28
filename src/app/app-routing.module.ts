@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './theme/layouts/admin-layout/admin-layout.component';
 import { GuestComponent } from './theme/layouts/guest/guest.component';
 import { AuthGuard } from './src/features/guard/guards/auth.guard';
+import { NotFoundComponent } from './src/features/not-found/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -125,7 +126,8 @@ const routes: Routes = [
         loadComponent: () => import('../app/src/features/authentication/login/login.component')
       }
     ]
-  }
+  },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

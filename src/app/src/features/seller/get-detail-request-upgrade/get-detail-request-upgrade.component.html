@@ -15,6 +15,7 @@
         <p><i class="fas fa-birthday-cake"></i> Ngày sinh: {{record?.date_of_birth}}</p>
         <p><i class="fas fa-clock"></i> Giờ mở cửa: {{record?.opening_time}}</p>
         <p><i class="fas fa-clock"></i> Giờ đóng cửa: {{record?.closing_time}}</p>
+        <button class="update-btn" (click)="Approved(record?.id)" >Duyệt</button>
     </div>
 
     <div class="shop-right">
@@ -52,6 +53,11 @@
         <div class="license-img">
             <h4>Giấy Phép Kinh Doanh</h4>
             <img src={{record?.certificate_image}} alt="Giấy Phép Kinh Doanh">
+        </div>
+        <div class="text-center">
+            <a href="javascript:history.back()" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Quay lại
+            </a>
         </div>
     </div>
 </div>

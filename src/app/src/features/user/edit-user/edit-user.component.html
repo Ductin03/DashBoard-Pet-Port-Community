@@ -153,11 +153,11 @@
     <!-- Phần bên trái -->
     <div class="profile-left">
         <img src={{avatar_url}} alt="Profile Picture">
-        <h3><input type="text" class="input-field" [ngModel]="full_name"></h3>
-        <p><i class="fas fa-birthday-cake"></i> Ngày Sinh: <input type="date" class="input-field" [ngModel]="date_of_birth"></p>
+        <h3><input type="text" class="input-field" [(ngModel)]="full_name"></h3>
+        <p><i class="fas fa-birthday-cake"></i> Ngày Sinh: <input type="date" class="input-field" [(ngModel)]="date_of_birth"></p>
         <!-- <p><i class="fas fa-clock"></i> Opening Time: <input type="time" class="input-field" value="08:00"></p>
         <p><i class="fas fa-clock"></i> Closing Time: <input type="time" class="input-field" value="17:00"></p> -->
-        <button class="update-btn">Cập nhật thông tin</button>
+        <button class="update-btn" (click)="onSubmit()">Cập nhật thông tin</button>
     </div>
     <!-- Phần bên phải -->
     <div class="profile-right">
@@ -165,23 +165,23 @@
         <table class="info-table">
             <tr>
                 <th>Họ và Tên</th>
-                <td><input type="text" class="input-field" [ngModel]="full_name"></td>
+                <td><input type="text" class="input-field" [(ngModel)]="full_name"></td>
             </tr>
             <tr>
                 <th>Email</th>
-                <td><input type="email" class="input-field" [ngModel]="email"></td>
+                <td><input type="email" class="input-field" [(ngModel)]="email"></td>
             </tr>
             <tr>
                 <th>Số điện thoại</th>
-                <td><input type="tel" class="input-field" [ngModel]="phone"></td>
+                <td><input type="tel" class="input-field" [(ngModel)]="phone"></td>
             </tr>
             <tr>
                 <th>Giới Tính</th>
-                <td><input type="tel" class="input-field" [ngModel]="gender"></td>
+                <td><input type="tel" class="input-field"[(ngModel)]="gender"></td>
             </tr>
             <tr>
                 <th>Địa chỉ</th>
-                <td><textarea class="input-field">{{address}}</textarea></td>
+                <td><textarea class="input-field"[(ngModel)]="address">{{address}}</textarea></td>
             </tr>
         </table>
     </div>

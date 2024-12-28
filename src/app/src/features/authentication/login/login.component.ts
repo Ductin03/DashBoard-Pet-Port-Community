@@ -68,6 +68,8 @@ export default class LoginComponent {
           confirmButtonText: 'OK',
         });
       }
+      console.log(this.email, this.password);
+      
           console.log(err);
           
         }

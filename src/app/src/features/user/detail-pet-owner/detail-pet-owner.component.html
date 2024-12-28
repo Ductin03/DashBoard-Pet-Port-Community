@@ -18,8 +18,8 @@
             display: flex;
             flex-wrap: wrap;
             margin: 30px auto;
-            padding-right:0px;
-            padding-left:0px;
+            padding-right: 0px;
+            padding-left: 0px;
             max-width: 1200px;
             gap: 20px;
         }
@@ -101,6 +101,23 @@
             border: 2px solid #ddd;
         }
 
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #17a2b8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #138496;
+        }
+
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -125,8 +142,6 @@
         <img src={{data?.avatar_url}} alt="Profile Picture">
         <h3>{{data?.full_name}}</h3>
         <p><i class="fas fa-birthday-cake"></i> Ngày sinh: {{data?.date_of_birth}}</p>
-        <!-- <p><i class="fas fa-clock"></i> Opening Time: 08:00 AM</p>
-        <p><i class="fas fa-clock"></i> Closing Time: 05:00 PM</p> -->
     </div>
 
     <!-- Phần bên phải -->
@@ -138,9 +153,7 @@
                 <td>{{data?.full_name}}</td>
             </tr>
             <tr>
-                <th>
-                    Tên Đăng Nhập
-                </th>
+                <th>Tên Đăng Nh nhập</th>
                 <td>{{data?.username}}</td>
             </tr>
             <tr>
@@ -164,8 +177,7 @@
                 <td>{{data?.gender}}</td>
             </tr>
         </table>
-
-       
+        <a href="javascript:history.back()" class="back-button">Quay lại</a>
     </div>
 </div>
 
